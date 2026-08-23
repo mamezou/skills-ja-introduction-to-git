@@ -1,30 +1,30 @@
-## Step 5: Working with Branches
+## Step 5: ブランチを扱う
 
-With our game now tracked, we know it is easy to return to a working version. And since we can see the exact changes we are committing to history, we know nothing unrelated will be included.
+ゲームが追跡されるようになり、動くバージョンに簡単に戻れることが分かりました。履歴にコミットする内容も正確に確認できるので、関係のないものが混ざる心配もありません。
 
-But now, that brings up more questions! 😱
+すると、新しい疑問が出てきます。😱
 
-"How do I prevent a messy history?"
+「履歴が散らかるのをどう防ぐ？」
 
-"How do I avoid non-working versions in the history from incomplete work?"
+「作業途中の動かないバージョンが履歴に入るのをどう避ける？」
 
-"What if I need to work on multiple features/fixes at the same time?"
+「複数の機能や修正を同時に進めたいときは？」
 
-### 📖 Theory: Understanding Branches
+### 📖 理論：ブランチを理解する
 
-Branches in Git are lightweight pointers (like labels) to specific commits. This allows working on a dependent version without influencing the original, which is great for parallel feature development and collaboration.
+Git のブランチは、特定のコミットを指す軽量なポインター（ラベルのようなもの）です。ブランチを使うと、元のバージョンに影響を与えずに派生したバージョンで作業できます。並行した機能開発や共同作業に向いています。
 
-Key Concepts:
+重要な考え方：
 
-- **`main` Branch**: Usually the trusted working version, and the first branch. (historically called `master`)
-- **Feature Branch**: A safe isolated space to develop without affecting the trusted version.
-- **Merging**: Combining changes from different branches.
+- **`main` ブランチ**: 通常は信頼できる動作版で、最初のブランチです（歴史的には `master` と呼ばれていました）。
+- **フィーチャーブランチ**: 信頼できるバージョンに影響を与えずに開発できる、安全で隔離された場所です。
+- **マージ**: 異なるブランチの変更を 1 つにまとめることです。
 
-### How do you combine branches?
+### ブランチはどうやって合流させるのか
 
-There are multiple strategies for organizing commits. Usually, all in the name of different styles of organization, transparency, and traceability. Let's introduce the most common.
+コミットを整理する方法は複数あります。たいていは、整理の仕方・見通しのよさ・追跡しやすさのスタイルの違いによるものです。代表的なものを紹介します。
 
-**Fast-forward merge**: Move the new commits from the child branch onto the parent branch.
+**Fast-forward merge**: 子ブランチの新しいコミットを親ブランチへ移動します。
 
 <div align="center">
 
@@ -51,7 +51,7 @@ gitGraph LR:
 
 </div>
 
-**Merge commit**: Apply the changes as a single new commit on the parent branch. Leave the child branch in the network for traceability.
+**Merge commit**: 変更を 1 つの新しいコミットとして親ブランチに適用します。追跡できるよう、子ブランチはネットワーク図に残します。
 
 <div align="center">
 
@@ -84,7 +84,7 @@ gitGraph LR:
 
 </div>
 
-**Squash merge**: Collapse the commits from one branch into a single new commit on the other branch.
+**Squash merge**: 一方のブランチのコミットをまとめて、もう一方のブランチに 1 つの新しいコミットとして作ります。
 
 <div align="center">
 
@@ -110,27 +110,27 @@ gitGraph LR:
 
 </div>
 
-### What are the important Git commands?
+### よく使う Git コマンド
 
-- `git branch my-new-feature` - Start a branch from the current branch.
-- `git checkout my-new-feature` - Change your working directory to a different version from the repository history.
-- `git merge` - Apply the commits from one branch onto another branch. (Default: Fast forward merge)
+- `git branch my-new-feature` — 現在のブランチからブランチを作ります。
+- `git checkout my-new-feature` — 作業ディレクトリをリポジトリ履歴の別のバージョンに切り替えます。
+- `git merge` — 一方のブランチのコミットをもう一方のブランチに適用します（既定は fast forward merge）。
 
 <!-- > [!TIP]
 > You can perform a simple "undo" of the last commit with `git reset --soft HEAD~1`. For VS Code, use the Command Palette and search for `Undo Last Commit`. -->
 
 > [!TIP]
-> Git 2.23 introduced the `git switch` command to simplify branch management. You will likely see it referenced more in the future.
+> Git 2.23 でブランチ管理を簡単にする `git switch` コマンドが導入されました。今後は `git switch` を見かけることが増えるでしょう。
 
 <!-- Since Git 2.23 -->
 <!-- `git switch --create <branch name>` -->
 <!-- `git switch branch-name` -->
 
-### ⌨️ Activity 1: Commit to a branch (using the CLI)
+### ⌨️ やること 1：ブランチにコミットする（CLI）
 
-Let's start a branch and practice committing changes to it.
+ブランチを作り、変更をコミットする練習をしましょう。
 
-1. Before we start, let's see what our history looks like. Notice that it is perfectly linear (no branches yet).
+1. 始める前に、今の履歴を見てみます。完全に一直線（まだ枝分かれなし）です。
 
    ```bash
    git log --all --graph --oneline
@@ -138,14 +138,14 @@ Let's start a branch and practice committing changes to it.
 
    <img width="500px" src="https://github.com/user-attachments/assets/2055347b-28a5-40cd-9fcc-b57b2b44b857"/>
 
-1. Create a new branch and switch to it.
+1. 新しいブランチを作り、切り替えます。
 
    ```bash
    git branch fix-incomplete-high-score
    git checkout fix-incomplete-high-score
    ```
 
-1. Show a list of the available branches.
+1. 使えるブランチの一覧を表示します。
 
    ```bash
    git branch --list
@@ -153,9 +153,9 @@ Let's start a branch and practice committing changes to it.
 
    <img width="500px" src="https://github.com/user-attachments/assets/6eb8ba89-73b1-4398-b567-3833fa086d80"/>
 
-1. Open `index.js` so we can fix the high score feature.
+1. high score 機能を直すため、`index.js` を開きます。
 
-1. On `line 41`, insert a variable for high score and then commit it.
+1. `line 41` に high score 用の変数を挿入し、コミットします。
 
    ```js
    let highScore = 0;
@@ -166,7 +166,7 @@ Let's start a branch and practice committing changes to it.
    git commit -m "Add new variable for tracking high score"
    ```
 
-1. On `line 61`, insert code to load the score from local storage and then commit it.
+1. `line 61` に、ローカルストレージからスコアを読み込むコードを挿入し、コミットします。
 
    ```js
    // Load high score from localStorage
@@ -179,7 +179,7 @@ Let's start a branch and practice committing changes to it.
    git commit -m "Add loading of stored high score"
    ```
 
-1. On `line 313` replace the `updateScore` function so it tracks the highest score, then commit it.
+1. `line 313` の `updateScore` 関数を次の内容に置き換えて最高スコアを記録できるようにし、コミットします。
 
    ```js
    function updateScore() {
@@ -199,7 +199,7 @@ Let's start a branch and practice committing changes to it.
    git commit -m "Add logic to keep track of highest score"
    ```
 
-1. Let's look at the history graph again. Notice our feature branch has 3 more commits than the `main` branch, and that our feature branch is marked with `HEAD` clarifying our current version.
+1. もう一度履歴の図を見ます。フィーチャーブランチが `main` より 3 コミット進んでいること、そしてフィーチャーブランチに `HEAD` が付いていて現在地が分かることに注目します。
 
    ```bash
    git log --all --graph --oneline
@@ -207,15 +207,15 @@ Let's start a branch and practice committing changes to it.
 
    <img width="500px" src="https://github.com/user-attachments/assets/cf86fbf8-1efd-4ad8-a916-da129c1b4b4c"/>
 
-1. Switch back to the `main` branch.
+1. `main` ブランチに戻ります。
 
    ```bash
    git checkout main
    ```
 
-1. Merge the new feature.
+1. 新しい機能をマージします。
 
-   > 🪧 **Note:** For learning, we use the "not fast forward" option so the branch stays visible in the history. It will make our visual diagram more interesting to look at.
+   > 🪧 **注**: 学習のため、ブランチが履歴に残る「fast forward しない」オプションを使います。図が見て分かりやすくなります。
 
    ```bash
    git merge --no-ff fix-incomplete-high-score -m "Fix high score tracker"
@@ -223,7 +223,7 @@ Let's start a branch and practice committing changes to it.
 
    <img width="500px" src="https://github.com/user-attachments/assets/6ee45d40-e25c-4c03-907c-063d57273a7e"/>
 
-1. Let's look at the history graph again. Notice the parallel branch that is now merged.
+1. もう一度履歴の図を見ます。並行していたブランチがマージされたことが分かります。
 
    ```bash
    git log --all --graph --oneline
@@ -231,23 +231,23 @@ Let's start a branch and practice committing changes to it.
 
    <img width="500px" src="https://github.com/user-attachments/assets/44ac3dd2-9d2d-4551-9cb5-c03f05fabdd1"/>
 
-1. Remove the pointer/label to the feature branch, since it is now merged and no longer needed.
+1. マージ済みで不要になったフィーチャーブランチのポインター（ラベル）を削除します。
 
    ```bash
    git branch --delete fix-incomplete-high-score
    ```
 
-   > 🪧 **Note**: This does not delete the branch content, just the name used for referencing it.
+   > 🪧 **注**: 削除するのはブランチの中身ではなく、参照に使っていた名前だけです。
 
-### ⌨️ Activity 2: Commit to a branch (using VS Code)
+### ⌨️ やること 2：ブランチにコミットする（VS Code）
 
-1. In the left navigation, open the **Source Control** tab. Make sure the **Graph** panel is still visible (from step 3). Let's watch it update as we apply changes.
+1. 左のナビゲーションで **Source Control** タブを開きます。**Graph** パネルが表示されたままであることを確認します（Step 3 で有効にしたもの）。変更を加えるたびに更新される様子を見ていきます。
 
-1. In the lower status bar on the left, click the branch name `main`. A menu will appear with options.
+1. 画面下のステータスバー左側にあるブランチ名 `main` をクリックします。メニューが表示されます。
 
    <img width="350px" src="https://github.com/user-attachments/assets/ca6c38bc-631e-48f4-980b-434a9b0f0fc1"/><br/>
 
-1. Select the **Create new branch...** option and use the below name.
+1. **Create new branch...** を選び、次の名前を使います。
 
    <img width="350px" src="https://github.com/user-attachments/assets/d3f26f30-3f8f-4cbb-8fb2-5754838b0fdf"/>
 
@@ -257,35 +257,35 @@ Let's start a branch and practice committing changes to it.
 
    <img width="350px" src="https://github.com/user-attachments/assets/e3ce472c-650c-4674-a778-ad2e310ef0c6"/>
 
-1. Open `index.html`. On `line 21`, insert a new element for showing the current level, then commit the change.
+1. `index.html` を開きます。`line 21` に現在のレベルを表示する要素を挿入し、変更をコミットします。
 
    ```diff
    <h3>Level</h3>
    <div class="score" id="level">1</div>
    ```
 
-   Commit message
+   コミットメッセージ
 
    ```bash
    Add element to display current level
    ```
 
-1. Open `index.js` so we can add the level counter.
+1. レベルカウンターを追加するため、`index.js` を開きます。
 
-1. On `line 42`, add 2 variables for tracking level, then commit the change.
+1. `line 42` に、レベルを記録する変数を 2 つ追加し、変更をコミットします。
 
    ```js
    let level = 1;
    let patternsCleared = 0;
    ```
 
-   Commit Message
+   コミットメッセージ
 
    ```bash
    Add variables for level and clear counter
    ```
 
-1. On `line 273`, replace the `checkPatternMatch` method with the following, then commit the change.
+1. `line 273` の `checkPatternMatch` メソッドを次の内容に置き換え、変更をコミットします。
 
    ```js
    function checkPatternMatch() {
@@ -309,23 +309,23 @@ Let's start a branch and practice committing changes to it.
    }
    ```
 
-   Commit Message
+   コミットメッセージ
 
    ```bash
    Add logic to calculate level
    ```
 
-1. Notice the **Graph** panel shows the entire history: the new commits, the previous branch, and also the original commits.
+1. **Graph** パネルに履歴全体（新しいコミット、前のブランチ、最初のコミット）が表示されていることに注目します。
 
    <img width="350px" src="https://github.com/user-attachments/assets/66b8c419-3935-46e8-9905-b6ed4f5de75c"/>
 
-1. To prepare for merging, click the branch name again and select the `main` branch.
+1. マージの準備として、もう一度ブランチ名をクリックし、`main` ブランチを選びます。
 
    <img width="350px" src="https://github.com/user-attachments/assets/133f6dfa-c2fc-44e0-a945-4a62101abcf6"/><br/>
 
    <img width="350px" src="https://github.com/user-attachments/assets/1c2e4ce9-3c10-4fb0-9eba-e789bd1de525"/>
 
-1. Click the three dot menu (`...`), then `Branch`, and select `Merge...`. Notice it performed a normal **Fast Forward** style merge.
+1. 三点メニュー（`...`）→ `Branch` → `Merge...` を選びます。通常の **Fast Forward** 形式でマージされたことに注目します。
 
    <img width="350px" src="https://github.com/user-attachments/assets/7b21ad36-5012-4fb2-a30a-c02a5884ea52"/><br/>
 
@@ -333,17 +333,17 @@ Let's start a branch and practice committing changes to it.
 
    <img width="350px" src="https://github.com/user-attachments/assets/7492e9f2-ceb4-4c10-a5da-8a20d0b59441"/>
 
-1. Click the three dot menu (`...`), then `Branch`, and select `Delete Branch...`.
+1. 三点メニュー（`...`）→ `Branch` → `Delete Branch...` を選びます。
 
    <img width="350px" src="https://github.com/user-attachments/assets/7b21ad36-5012-4fb2-a30a-c02a5884ea52"/><br/>
 
    <img width="350px" src="https://github.com/user-attachments/assets/b75f4349-c3da-4228-95c9-9025c33f01c2"/>
 
-1. With both branches merged, Mona should already be busy checking your work. Give her a moment and keep watch in the comments. You will see her respond with progress info and the next steps.
+1. 両方のブランチをマージしたので、Mona が作業を確認しています。少し待って、コメントを見てください。進捗と次の Step が投稿されます。
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>うまくいかないとき 🤷</summary><br/>
 
-- If you made a typo in your branch name, you can rename it with `git branch --move old-name new-name`
+- ブランチ名を打ち間違えた場合は、`git branch --move old-name new-name` で変更できます。
 
 </details>

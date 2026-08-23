@@ -1,107 +1,107 @@
-## Step 1: Introduction to Git Version Control
+## Step 1: Git によるバージョン管理の概要
 
-You've been working on a project and realized organizing backups has become difficult. And, since everyone shares updates differently, collaborating with them is very confusing.
+あるプロジェクトに取り組んでいて、バックアップの整理が難しくなってきたことに気づきました。しかも、更新の共有方法が人によってばらばらで、共同作業がとても分かりにくい状態です。
 
-After some quick searching, you learned about [Git](https://git-scm.com/). Supposedly, it makes keeping track of changes and collaborating with others easy. It removes the confusion of older methods like file naming conventions, share drives, and emailed copies of files.
+少し調べてみて、[Git](https://git-scm.com/) というものを知りました。変更の追跡と他の人との共同作業が簡単になるそうです。ファイル名の付け方の工夫、共有ドライブ、メールでのファイル送付といった古いやり方の分かりにくさを解消してくれます。
 
 > [!IMPORTANT]
-> This exercise teaches Git usage on a machine with it already installed.
-> If you want to install it on your own computer, we recommend the official [Git site](https://git-scm.com) for installation guides, since there are many computer configurations.
+> 演習では、Git がすでにインストールされているマシンで Git の使い方を学びます。
+> 自分のコンピューターにインストールしたい場合は、環境の組み合わせが多いため、公式の [Git サイト](https://git-scm.com) のインストール手順を参照してください。
 
-### 📖 Theory: What is Version Control?
+### 📖 理論：バージョン管理とは
 
-Version control systems solve common problems developers face when managing code changes over time. Issues like:
+バージョン管理システムは、コードの変更を長期間管理するときに開発者が直面する、よくある問題を解決します。たとえば次のような問題です。
 
-- Backup and Recovery
-- Sandboxed Experimentation
-- Parallel development
-- Locked files
-- File duplication
-- Conflicting changes
-- Team collaboration
+- バックアップと復旧
+- 隔離された環境での実験
+- 並行した開発
+- ロックされたファイル
+- ファイルの重複
+- 競合する変更
+- チームでの共同作業
 
-If you have ever experienced any of the below situations, you might like Git version control! 😎
+次のような場面に出会ったことがあれば、Git のバージョン管理は役に立つはずです。😎
 
 - `my-project-final-v2-really3.zip`
-- "When did that stop working? I didn't change anything!" (but you know you did)
-- "The file is locked. I'll work on a copy until he gets back on Monday."
-- "Which email had v2 in it? I think the one from last Wednesday."
+- 「いつから動かなくなった？ 何も変えてないのに！」（本当は変えている）
+- 「ファイルがロックされている。彼が月曜に戻るまでコピーで作業しよう。」
+- 「v2 が入っていたのはどのメールだっけ？ 先週の水曜のやつかな。」
 
-### What is "Git" version control?
+### 「Git」のバージョン管理とは
 
-Git is a [distributed version control system](https://en.wikipedia.org/wiki/Distributed_version_control), meaning each developer has a complete copy of the project history. This differs from centralized systems where there is only one copy in a shared location.
+Git は[分散バージョン管理システム](https://en.wikipedia.org/wiki/Distributed_version_control)です。つまり、開発者それぞれがプロジェクトの履歴の完全なコピーを持ちます。共有された場所にコピーが 1 つしかない集中型のシステムとは異なります。
 
-This provides advantages like:
+分散型には次のような利点があります。
 
-- Working offline - Most operations are processed locally.
-- Increased robustness - Distributed copies act as backups.
-- Flexible workflows - Developer can use their own processes and tooling.
+- オフラインで作業できる — ほとんどの操作はローカルで処理されます。
+- 堅牢性が高い — 分散したコピーがバックアップとして機能します。
+- 柔軟なワークフロー — 開発者は自分のやり方とツールを使えます。
 
-### How do I use Git?
+### Git はどうやって使うのか
 
-Git is an [open-source](https://en.wikipedia.org/wiki/Open_source) tool built by developers for developers. As such, the community has consistently developed features to cover most needs.
+Git は開発者が開発者のために作った[オープンソース](https://en.wikipedia.org/wiki/Open_source)のツールです。コミュニティは、ほとんどの用途をカバーする機能を作り続けてきました。
 
-For example, the community has streamlined Git into nearly all development workflows. Here are a few:
+たとえば、コミュニティは Git をほぼすべての開発ワークフローに組み込んできました。いくつか挙げます。
 
-- **Command Line Interface (CLI)** - The original tool and source of all functionality.
-- **Code Editors** - Alongside your favorite coding editors/tools. Examples:
+- **コマンドラインインターフェイス（CLI）** — 最初からあるツールで、すべての機能の元になっています。
+- **コードエディター** — 普段使っているエディター/ツールと一緒に使えます。例：
   - Visual Studio Code
   - JetBrains IDEs
   - Xcode
   - Emacs/VIM
-- **Hosting Services** - Centralized Git Hosts, with online editing through the web browser. Examples:
+- **ホスティングサービス** — Git を集中管理し、ブラウザーでのオンライン編集もできます。例：
   - GitHub
   - GitLab
   - Gitea
   - Azure DevOps
   - AWS CodeCommit
   - BitBucket
-- **Desktop Applications** - Friendly graphical interfaces. Examples:
+- **デスクトップアプリケーション** — 分かりやすいグラフィカルインターフェイスです。例：
   - GitHub Desktop
   - Sourcetree
   - TortoiseGit
   - GitKraken
   - Git Butler
-  - And many more: https://git-scm.com/tools/guis
+  - ほかにも多数：https://git-scm.com/tools/guis
 
-### ⌨️ Activity: Open the sample project
+### ⌨️ やること：サンプルプロジェクトを開く
 
-To start practicing Git, let's first open a pre-configured development environment and explore the sample project.
+Git の練習を始めるため、まずは設定済みの開発環境を開いて、サンプルプロジェクトを見てみましょう。
 
-1. Right-click the below button to open the **Create Codespace** page in a new tab. Use the default configuration.
+1. 下のボタンを右クリックして、**Create Codespace** ページを新しいタブで開きます。設定は既定のままにします。
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{full_repo_name}}?quickstart=1)
 
-   > 🪧 **Note**: Typically a [GitHub Codespace](https://github.com/features/codespaces) automatically includes the repository code and all required settings. This is a modified experience so you can practice from scratch.
+   > 🪧 **注**: 通常、[GitHub Codespace](https://github.com/features/codespaces) にはリポジトリのコードと必要な設定が自動的に含まれます。演習では、ゼロから練習できるように内容を変えてあります。
 
-1. Confirm the **Repository** field is your copy of the exercise, not the original, then click the green **Create Codespace** button.
+1. **Repository** 欄が元のリポジトリではなく自分のコピーになっていることを確認し、緑色の **Create Codespace** ボタンをクリックします。
 
-   - ✅ Your copy: `/{{full_repo_name}}`
-   - ❌ Original: `/skills/introduction-to-git`
+   - ✅ 自分のコピー：`/{{full_repo_name}}`
+   - ❌ 元のリポジトリ：`/skills/introduction-to-git`
 
-1. Wait a moment for Visual Studio Code to load in your browser.
+1. ブラウザーで Visual Studio Code が読み込まれるまで少し待ちます。
 
-1. In the left navigation tabs, select **File Explorer** to show the files. Right-click on `src/index.html` and select **Show Preview** to see our sample game in action.
+1. 左のナビゲーションタブで **File Explorer** を選び、ファイルを表示します。`src/index.html` を右クリックして **Show Preview** を選ぶと、サンプルゲームが動きます。
 
-   > ❗️ **Warning**: Don't make any changes!
-   > We have not added version control yet! 😱
+   > ❗️ **警告**: 何も変更しないでください。
+   > まだバージョン管理を追加していません！ 😱
 
    <img width="350px" src="https://github.com/user-attachments/assets/c5f60f24-27fb-4670-ab0a-c00aa723672c"/><br/>
 
    <img width="500px" src="https://github.com/user-attachments/assets/a20529f3-8e42-464b-8d84-b0880dd14383"/>
 
 > [!TIP]
-> Feel free to leave the game open and give it more trial-runs as we make changes! 🧑‍🚀
+> ゲームは開いたままにして、変更を加えながら何度も試してみてください。🧑‍🚀
 
-### ⌨️ Activity 2: Git in the CLI
+### ⌨️ やること 2：CLI で Git を使う
 
-Let's start with using Git in the command line interface (CLI). This is the source of all Git functionality and most powerful option.
+まずはコマンドラインインターフェイス（CLI）で Git を使ってみましょう。CLI はすべての Git 機能の元であり、いちばん強力な選択肢です。
 
-1. If the integrated terminal is not already available, open it using `Ctrl+Shift+P` then searching for and selecting `View: Toggle Terminal`
+1. 統合ターミナルが表示されていない場合は、`Ctrl+Shift+P` を押して `View: Toggle Terminal` を検索・選択して開きます。
 
    <img width="500px" src="https://github.com/user-attachments/assets/4bbf918a-f87c-4875-b7fd-61d8b16a70e1"/>
 
-1. Show the currently installed version of Git, to verify it is installed.
+1. インストールされている Git のバージョンを表示して、インストールを確認します。
 
    ```bash
    git --version
@@ -109,7 +109,7 @@ Let's start with using Git in the command line interface (CLI). This is the sour
 
    <img width="500px" src="https://github.com/user-attachments/assets/0e09991b-829f-4028-b951-87bc5fa47bfc"/>
 
-1. Show the Git help documentation.
+1. Git のヘルプドキュメントを表示します。
 
    ```bash
    git --help
@@ -117,30 +117,30 @@ Let's start with using Git in the command line interface (CLI). This is the sour
 
    <img width="500px" src="https://github.com/user-attachments/assets/c447adf3-9cc1-4106-9a49-f2bf705d396c"/>
 
-### ⌨️ Activity 3: Set your Git identity
+### ⌨️ やること 3：Git の識別情報を設定する
 
-Before we can start versioning our game, let's provide Git our identity so it can associate us as the author for any changes.
+ゲームのバージョン管理を始める前に、変更の作成者として記録されるよう、Git に自分の識別情報を伝えます。
 
 > [!WARNING]
-> Git stores the author name and email in the history, which is visible to anyone with access to the repository. GitHub provides an optional [noreply email address](https://docs.github.com/en/account-and-profile/reference/email-addresses-reference#your-noreply-email-address) you may enable from your account [email settings](https://github.com/settings/emails).
+> Git は作成者の名前とメールアドレスを履歴に保存します。名前とメールアドレスは、リポジトリにアクセスできる全員から見えます。GitHub には任意で使える [noreply メールアドレス](https://docs.github.com/en/account-and-profile/reference/email-addresses-reference#your-noreply-email-address)があり、アカウントの[メール設定](https://github.com/settings/emails)から有効にできます。
 
-1. Set your display name.
+1. 表示名を設定します。
 
-   ⚠️ Don't forget to replace `First` and `Last`!
+   ⚠️ `First` と `Last` を自分の情報に置き換えるのを忘れずに。
 
    ```bash
    git config --global user.name "First Last"
    ```
 
-1. Set your email address. For additional privacy, consider enabling your noreply address in your account [email settings](https://github.com/settings/emails) to keep your personal email private.
+1. メールアドレスを設定します。プライバシーを守りたい場合は、アカウントの[メール設定](https://github.com/settings/emails)で noreply アドレスを有効にして、個人のメールアドレスを隠すことを検討してください。
 
-   ⚠️ Don't forget to replace `me@example.com`!
+   ⚠️ `me@example.com` を自分の情報に置き換えるのを忘れずに。
 
    ```bash
    git config --global user.email "me@example.com"
    ```
 
-1. Confirm the changes by viewing the configuration.
+1. 設定を表示して、変更を確認します。
 
    ```bash
    git config --global --list
@@ -148,14 +148,14 @@ Before we can start versioning our game, let's provide Git our identity so it ca
 
    <img width="500px" src="https://github.com/user-attachments/assets/62688039-3601-4a23-8f61-408210faff0a"/>
 
-1. With your author details configured, Mona should already be busy checking your work. Give her a moment and keep watch in the comments. You will see her respond with progress info and the next steps.
+1. 作成者の情報を設定したので、Mona が作業を確認しています。少し待って、コメントを見てください。進捗と次の Step が投稿されます。
 
 > [!TIP]
-> You can also change your username and email per project, if you have multiple accounts. On an **existing** project repository, use `--local` instead of `--global`.
+> 複数のアカウントを使っている場合は、プロジェクトごとにユーザー名とメールアドレスを変えることもできます。**既存の**プロジェクトのリポジトリで、`--global` の代わりに `--local` を使います。
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>うまくいかないとき 🤷</summary><br/>
 
-- Make sure you replace "First Last" and "me@example.com" with your actual information.
+- "First Last" と "me@example.com" を自分の情報に置き換えたか確認してください。
 
 </details>

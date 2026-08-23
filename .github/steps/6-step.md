@@ -1,33 +1,33 @@
-## Step 6: Introduction to Collaboration
+## Step 6: 共同作業の概要
 
-Nice work! You've mastered local Git operations and our game is now safe to experiment developing new features! 🎉
+お疲れさまでした。ローカルでの Git 操作を身につけ、ゲームで新しい機能を安心して試せるようになりました。🎉
 
-But.. the really fun development happens in teams, not alone. That is another exercise, but let's start exploring the topic.
+でも、本当に面白い開発は 1 人ではなくチームで行うものです。詳しくは別の演習で扱いますが、入り口だけ見ておきましょう。
 
-### 📖 Theory: Git Collaboration Concepts
+### 📖 理論：Git の共同作業の考え方
 
-Since branches provide powerful parallelism to work on different features independently, a natural extension is to enable multiple people to work in parallel.
+ブランチによって、異なる機能を独立して並行開発できます。自然な発展として、複数の人が並行して作業できるようになります。
 
-At the beginning, we mentioned Git is a "distributed" version control system, this means it can share changes with other copies of the same repository!
+最初に、Git は「分散」バージョン管理システムだと説明しました。分散とは、同じリポジトリの他のコピーと変更を共有できるという意味です。
 
-### What does collaboration look like?
+### 共同作業はどういう流れになるのか
 
-Here is a typical workflow:
+典型的なワークフローは次のとおりです。
 
-1. Copy a repository to your local machine (called **cloning**).
-1. Create branches and develop new features.
-1. Publish your changes to a remote repository, somewhere others can also access (called **pushing**).
-1. Other developers decide if they like your changes. If so, they merge them into their version of the project (called **pulling**).
-1. Additionally, you might proactively ask another developer to integrate your changes into their copy (called a **pull request**).
+1. リポジトリを自分のマシンにコピーする（**cloning** と呼びます）。
+1. ブランチを作り、新しい機能を開発する。
+1. 他の人もアクセスできる場所にあるリモートリポジトリへ、変更を公開する（**pushing** と呼びます）。
+1. 他の開発者が変更を取り込むか判断する。取り込む場合は、自分のプロジェクトのバージョンにマージする（**pulling** と呼びます）。
+1. さらに、他の開発者に「変更を取り込んでほしい」と依頼することもできる（**pull request** と呼びます）。
 
-### ⌨️ Activity: Quick Review
+### ⌨️ やること：ふりかえり
 
-Answer one quick question for Mona, and she will share the final review! 🎉
+Mona からの質問に 1 つ答えると、最後のまとめが届きます。🎉
 
-**What is your favorite feature of Git?**
+**Git のお気に入りの機能は何ですか？**
 
-- [ ] It's free and open source. 😍
-- [ ] I don't need internet to use it. 🛜
-- [ ] I can use it with any operating system. 🍎🪟🐧
-- [ ] The detailed history (if I write good messages). ✨
-- [ ] That I might never write `final_really.zip` ever again! 😎
+- [ ] 無料でオープンソースなところ。😍
+- [ ] インターネットがなくても使えるところ。🛜
+- [ ] どの OS でも使えるところ。🍎🪟🐧
+- [ ] 詳しい履歴が残るところ（良いメッセージを書けば）。✨
+- [ ] もう `final_really.zip` を作らなくてよくなるかもしれないところ。😎

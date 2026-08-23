@@ -1,49 +1,52 @@
-# Introduction to Git
+# Introduction to Git（日本語版）
 
-_Use Git version control to work on a game using command line (CLI) and VS Code._
+_コマンドライン（CLI）と VS Code を使い、Git のバージョン管理でゲームを開発する。_
 
-## Welcome
+> このリポジトリは GitHub Skills「[Introduction to Git](https://github.com/skills/introduction-to-git)」（MIT License）の日本語版です。
+> 演習の進め方と自動チェックの仕組みは原本と同じで、Issue に投稿される手順の本文だけを日本語にしています。
 
-- **Who is this for**: Beginner developers who want to learn Git version control
-- **What you'll learn**: Fundamental Git concepts including commits, branches, history, and collaboration basics
-- **What you'll build**: You'll create a Git repository, add a sample code, then develop some simple features.
-- **Prerequisites**:
+## ようこそ
 
-  - No prior Git or version control experience required.
-  - Recommended: Basic familiarity with Command Line Interfaces (CLI)
-  - Recommended: Basic familiarity with Visual Studio Code.
+- **対象**: Git のバージョン管理を学びたい、開発を始めたばかりの人
+- **学ぶこと**: コミット、ブランチ、履歴、共同作業の基礎といった Git の基本
+- **作るもの**: Git リポジトリを作り、サンプルコードを追加して、簡単な機能を開発します
+- **前提**:
 
-- **How long**: This exercise takes less than 60 minutes to complete.
+  - Git やバージョン管理の経験は不要です。
+  - 推奨: コマンドラインインターフェイス（CLI）の基本的な操作に慣れていること。
+  - 推奨: Visual Studio Code の基本的な操作に慣れていること。
 
-In this exercise, you will:
+- **所要時間**: 60 分以内
 
-1. Understand what version control is and why developers use it.
-1. Configure your Git identity.
-1. Create your first repository and make commits.
-1. View project history and compare file changes.
-1. Work with branches to experiment safely.
-1. Learn about Git collaboration concepts.
+この演習で行うこと:
 
-### How to start this exercise
+1. バージョン管理とは何か、開発者がなぜ使うのかを理解する
+2. Git の識別情報を設定する
+3. 最初のリポジトリを作り、コミットする
+4. プロジェクトの履歴を見て、ファイルの差分を比較する
+5. ブランチを使って安全に試す
+6. Git の共同作業の考え方を学ぶ
 
-Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
+### 演習の始め方
 
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=introduction-to-git&owner=%40me&name=skills-introduction-to-git&description=Exercise:+Introduction+to+Git&visibility=public)
+演習を自分のアカウントにコピーし、Octocat（Mona）が最初のレッスンを準備するまで **20 秒ほど**待ってから、**ページを再読み込み**してください。
+
+[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=mamezou&template_name=skills-ja-introduction-to-git&owner=%40me&name=skills-introduction-to-git&description=Exercise:+Introduction+to+Git&visibility=public)
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>うまくいかないとき 🤷</summary><br/>
 
-When copying the exercise, we recommend the following settings:
+演習をコピーするときは、次の設定を推奨します。
 
-- For owner, choose your personal account or an organization to host the repository.
+- Owner は自分の個人アカウント（または演習を置く Organization）を選ぶ。
 
-- We recommend creating a public repository, since private repositories will use Actions minutes.
+- private リポジトリは Actions の実行時間を消費するため、public リポジトリを推奨します。
 
-If the exercise isn't ready in 20 seconds, please check the [Actions](../../actions) tab.
+20 秒待っても演習が始まらないときは、[Actions](../../actions) タブを確認してください。
 
-- Check to see if a job is running. Sometimes it simply takes a bit longer.
+- ジョブが実行中かどうかを見る。少し長くかかることがあります。
 
-- If the page shows a failed job, please submit an issue. Nice, you found a bug! 🐛
+- ジョブが失敗している場合は、講師に知らせてください。
 
 </details>
 
