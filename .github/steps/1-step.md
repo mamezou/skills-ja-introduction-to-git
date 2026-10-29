@@ -122,7 +122,7 @@ Git の練習を始めるため、まずは設定済みの開発環境を開い�
 ゲームのバージョン管理を始める前に、変更の作成者として記録されるよう、Git に自分の識別情報を伝えます。
 
 > [!WARNING]
-> Git は作成者の名前とメールアドレスを履歴に保存します。名前とメールアドレスは、リポジトリにアクセスできる全員から見えます。GitHub には任意で使える [noreply メールアドレス](https://docs.github.com/en/account-and-profile/reference/email-addresses-reference#your-noreply-email-address)があり、アカウントの[メール設定](https://github.com/settings/emails)から有効にできます。
+> Git は作成者の名前とメールアドレスを履歴に保存します。名前とメールアドレスは、リポジトリにアクセスできる全員から見えます。GitHub には任意で使える [noreply メールアドレス](https://docs.github.com/ja/account-and-profile/reference/email-addresses-reference#your-noreply-email-address)があり、アカウントの[メール設定](https://github.com/settings/emails)から有効にできます。
 
 1. 表示名を設定します。
 
